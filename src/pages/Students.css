@@ -1,0 +1,379 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font-family: 'Segoe UI', sans-serif; }
+
+.students-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f6fb;
+}
+
+.students-content {
+  margin-left: 240px;
+  flex: 1;
+  padding: 30px;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.students-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.students-topbar h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+}
+
+.students-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* LEFT PANEL */
+.students-list-panel {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+  height: 100%;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 10px 16px;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.search-bar:focus-within {
+  border-color: #e91e8c;
+  background: white;
+}
+
+.search-bar span { font-size: 16px; margin-right: 10px; }
+
+.search-bar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  width: 100%;
+  color: #333;
+}
+
+.filter-row {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-row select {
+  flex: 1;
+  padding: 9px 12px;
+  border: 2px solid #f0f0f0;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #555;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.filter-row select:focus { border-color: #e91e8c; }
+
+.alphabet-scroll {
+  overflow-y: auto;
+  flex: 1;
+  padding-right: 4px;
+}
+
+.alphabet-group { margin-bottom: 16px; }
+
+.alphabet-letter {
+  font-size: 12px;
+  font-weight: 700;
+  color: #e91e8c;
+  padding: 4px 0;
+  border-bottom: 1px solid #fce4ec;
+  margin-bottom: 8px;
+}
+
+.student-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 4px;
+  border-left: 3px solid transparent;
+}
+
+.student-item:hover { background: #fce4ec; }
+.student-item.selected {
+  background: linear-gradient(135deg, #e91e8c22, #880e4f11);
+  border-left: 3px solid #e91e8c;
+}
+
+.student-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.student-item-info h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.student-item-info p {
+  font-size: 12px;
+  color: #888;
+}
+
+/* RIGHT PANEL */
+.id-card-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 24px;
+}
+
+.no-selection {
+  text-align: center;
+  color: #bbb;
+}
+
+.no-selection span {
+  font-size: 64px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.no-selection p { font-size: 15px; }
+
+/* ID CARD */
+.id-card {
+  width: 200%;
+  max-width: 420px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  background: white;
+  display: flex;
+  position: relative;
+}
+
+.id-card-left {
+  flex: 1;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.id-card-right {
+  width: 48px;
+  background: linear-gradient(180deg, #880e4f, #6d1a36);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 0;
+}
+
+.id-card-right span {
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  text-transform: uppercase;
+}
+
+.id-school-name {
+  font-size: 11px;
+  font-weight: 800;
+  color: #880e4f;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.id-school-sub {
+  font-size: 10px;
+  color: #aaa;
+  margin-bottom: 16px;
+}
+
+.id-photo-box {
+  width: 100px;
+  height: 110px;
+  border: 2px solid #880e4f;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  background: #fce4ec;
+  font-size: 36px;
+  font-weight: 800;
+  color: #880e4f;
+}
+
+.id-field {
+  margin-bottom: 10px;
+}
+
+.id-field-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 3px;
+  margin-bottom: 2px;
+}
+
+.id-field-label {
+  font-size: 10px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.id-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.id-year {
+  font-size: 16px;
+  font-weight: 800;
+  color: #880e4f;
+}
+
+.id-seal {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #880e4f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.id-status {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.id-status.enrolled { background: #e8f5e9; color: #2e7d32; }
+.id-status.pending { background: #fff8e1; color: #f57f17; }
+.id-status.dropped { background: #fce4ec; color: #c62828; }
+
+.id-barcode {
+  font-size: 11px;
+  color: #bbb;
+  letter-spacing: 2px;
+}
+
+
+
+/* ... existing styles ... */
+
+.students-topbar .student-count {
+  background: #e91e8c11;
+  color: #e91e8c;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.alphabet-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #e91e8c #f0f0f0;
+}
+
+/* 3D Card Effect Enhancement */
+.id-card-panel {
+  perspective: 1200px; /* Needed for the 3D rotation */
+}
+
+.id-card {
+  transform-style: preserve-3d;
+  box-shadow: 0 30px 60px rgba(136, 14, 79, 0.2);
+  border: 1px solid rgba(0,0,0,0.05);
+  cursor: default;
+}
+
+.id-photo-box {
+  box-shadow: inset 0 0 15px rgba(136, 14, 79, 0.1);
+  background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+}
+
+.id-field-value {
+  transition: color 0.3s ease;
+}
+
+/* Pulse animation for the "no selection" icon */
+.no-selection span {
+  filter: drop-shadow(0 0 10px rgba(233, 30, 140, 0.2));
+}
+
+/* Sidebar tweak for consistency */
+.sidebar-nav li {
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  margin: 4px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.sidebar-nav li:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.sidebar-nav li.active {
+  background: #e91e8c;
+  color: white;
+}
